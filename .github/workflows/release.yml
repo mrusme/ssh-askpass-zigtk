@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: mlugg/setup-zig@v2
         with:
-          version: 0.16.0
+          version: 0.17.1
       - run: zig build test
 
   build:
@@ -37,11 +37,11 @@ jobs:
       - uses: actions/checkout@v4
       - uses: mlugg/setup-zig@v2
         with:
-          version: 0.16.0
+          version: 0.17.1
       - name: Build
         env:
           TARGET: ${{ matrix.target }}
-        run: zig build -Dtarget="$TARGET" -Dgtk-stub -Dstrip -Doptimize=ReleaseSafe --prefix dist
+        run: zig build -Dtarget="$TARGET" -Dgtk-stub -Dstrip -Doptimize=safe --prefix dist
       - name: Package
         env:
           TARGET: ${{ matrix.target }}

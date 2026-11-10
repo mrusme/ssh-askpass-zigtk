@@ -1,7 +1,7 @@
 # ssh-askpass-zigtk
 
 [![SEGV 
-LICENSE](https://img.shields.io/static/v1?label=SEGV%20LICENSE&message=1.0&labelColor=0060A8&color=ffffff)](https://xn--gckvb8fzb.com/segv/)
+LICENSE](https://img.shields.io/static/v1?label=SEGV%20LICENSE&message=1.1&labelColor=0060A8&color=ffffff)](https://xn--gckvb8fzb.com/segv/)
 
 [<img src="https://xn--gckvb8fzb.com/images/chatroom.png"
 width="275">](https://xn--gckvb8fzb.com/contact/)
@@ -21,7 +21,7 @@ flag.
 
 ## Build
 
-You need Zig 0.16 and GTK4 with its development files. The build links GTK
+You need Zig 0.17 and GTK4 with its development files. The build links GTK
 through `pkg-config`.
 
 ```sh
@@ -29,7 +29,7 @@ zig build
 ```
 
 It builds natively on Linux and the BSDs. Nothing in the source is OS-specific,
-so FreeBSD, OpenBSD, and NetBSD build it the same way once Zig 0.16 and GTK4 are
+so FreeBSD, OpenBSD, and NetBSD build it the same way once Zig 0.17 and GTK4 are
 installed.
 
 ## Install
@@ -48,7 +48,7 @@ install -Dm755 ssh-askpass-zigtk-v1.0.0-x86_64-linux-gnu/ssh-askpass-zigtk ~/.lo
 To build from source instead, compile in release mode and copy the binary out.
 
 ```sh
-zig build -Doptimize=ReleaseSafe
+zig build -Doptimize=safe
 install -Dm755 zig-out/bin/ssh-askpass-zigtk ~/.local/bin/ssh-askpass-zigtk
 ```
 
@@ -159,7 +159,7 @@ toolchain for the target. The bindings are hand-written externs rather than a
 runtime.
 
 ```sh
-zig build -Dtarget=aarch64-linux-gnu -Dgtk-stub -Dstrip -Doptimize=ReleaseSafe
+zig build -Dtarget=aarch64-linux-gnu -Dgtk-stub -Dstrip -Doptimize=safe
 ```
 
 The release workflow builds every supported architecture this way.
